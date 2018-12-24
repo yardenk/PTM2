@@ -14,7 +14,6 @@ import javafx.scene.paint.Color;
 public class MazeDisplayer extends Canvas{
 	
 	char[][] mazeData ;
-	private StringProperty wallFileName ;
 	int cCol,cRow; 
 	Theme t ;  
 	
@@ -33,24 +32,17 @@ public class MazeDisplayer extends Canvas{
 	
 
 	public MazeDisplayer() {
-		wallFileName = new SimpleStringProperty();
 		cCol = 0 ;
 		cRow = 2; 
 	}
 	
 
-	public String getWallFileName() {
-		return wallFileName.get();
-	}
-
-	public void setWallFileName(String wallFileName) {
-		this.wallFileName.set(wallFileName); 
-	}
+	
 	
 	
 
-	public void setMazeData(char[][] mazeData2,Theme t) {
-		this.mazeData = mazeData2;
+	public void setMazeData(char[][] mazeData,Theme t) {
+		this.mazeData = mazeData;
 		this.t = t; 
 		redraw();
 	} 
@@ -63,13 +55,7 @@ public class MazeDisplayer extends Canvas{
 			double h = H / mazeData.length; 
 			
 			GraphicsContext gc = getGraphicsContext2D(); 
-			Image wall = null ; 
-			try {
-				wall = new Image (new FileInputStream(wallFileName.get()));
-			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} 
+			 
 			gc.clearRect(0, 0, W, H);
 			
 			for(int i=0 ; i< mazeData.length ; i++) {
@@ -87,6 +73,12 @@ public class MazeDisplayer extends Canvas{
 					}
 					if (mazeData[i][j] == 'F') {
 						gc.drawImage(t.getVarF(), j*w, i*h, w, h);
+					}
+					if (mazeData[i][j] == 's') {
+						gc.drawImage(t.getStart(), j*w, i*h, w, h);
+					}
+					if (mazeData[i][j] == 'g') {
+						gc.drawImage(t.getGoal(), j*w, i*h, w, h);
 					}
 					
 			

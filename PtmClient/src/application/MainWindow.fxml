@@ -38,8 +38,7 @@
    <left>
       <VBox prefHeight="254.0" prefWidth="82.0" spacing="5.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" onAction="#start" prefHeight="27.0" prefWidth="61.0" text="Start" />
-            <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="60.0" text="Stop" />
+            <Button mnemonicParsing="false" onAction="#solve" prefHeight="27.0" prefWidth="61.0" text="Solve" />
          </children>
          <BorderPane.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -58,6 +57,6 @@
       </HBox>
    </bottom>
    <center>
-     <MazeDisplayer fx:id="mazeDisplayer" height="300.0" width="300.0" BorderPane.alignment="CENTER" wallFileName="./resources/wall.jpg" /> 
+     <MazeDisplayer fx:id="mazeDisplayer" height="300.0" width="300.0" BorderPane.alignment="CENTER" /> 
    </center>
 </BorderPane>

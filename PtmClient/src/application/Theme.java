@@ -2,8 +2,17 @@ package application;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.InputStream;
 
+import javax.sound.sampled.AudioInputStream;
+
+import com.sun.media.jfxmedia.effects.AudioEqualizer;
+
+import javafx.scene.effect.ImageInput;
 import javafx.scene.image.Image;
+import javafx.scene.media.AudioClip;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 
 public class Theme {
 
@@ -17,6 +26,8 @@ public class Theme {
 	private Image varHora = null; 
 	private Image start = null ; 
 	private Image goal = null ; 
+	//private String mediaUrl = null ; 
+	
 
 
 		public Theme(String themeType)  {
@@ -27,6 +38,9 @@ public class Theme {
 				varF = new Image (new FileInputStream("./src/resources/varF.png"));
 				varVert = new Image (new FileInputStream("./src/resources/varVert.png"));
 				varHora = new Image (new FileInputStream("./src/resources/varHora.png"));
+				start = new Image (new FileInputStream("./src/resources/start.jpg"));
+				goal = new Image(new FileInputStream("./src/resources/goal.gif"));
+
 
 			} catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
@@ -35,9 +49,11 @@ public class Theme {
 			
 			if (themeType == "Dark") {
 				
-				
-				
-				
+			//	InputStream is=new FileInputStream("./src/resources/Moon.mp3");
+			//	AudioInputStream as=new AudioInputStream(is);
+			//	AudioEqualizer.player.start(as);
+
+
 			}
 			else if (themeType == "Garden") {
 				

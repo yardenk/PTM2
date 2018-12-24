@@ -3,7 +3,6 @@
 	<name>SolverEAR</name>
 	<comment></comment>
 	<projects>
-		<project>PtmEJB</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
