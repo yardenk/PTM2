@@ -64,7 +64,11 @@ public class MazeDisplayer extends Canvas{
 					if (mazeData[i][j] == 'J') {
 						gc.drawImage(t.getVarJ(), j*w, i*h, w, h);
 					}
-					
+					if (mazeData[i][j] == '|') {
+						gc.drawImage(t.getVarVert(), j*w, i*h, w, h);
+					}if (mazeData[i][j] == '-') {
+						gc.drawImage(t.getVarHora(), j*w, i*h, w, h);
+					}
 					if (mazeData[i][j] == 'L') {
 						gc.drawImage(t.getVarL(), j*w, i*h, w, h);
 					}

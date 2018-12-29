@@ -18,7 +18,9 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-                  <MenuItem mnemonicParsing="false" onAction="#openFile" text="Open" />
+              <MenuItem mnemonicParsing="false" onAction="#loadLevel" text="LoadLevel" />
+              <MenuItem mnemonicParsing="false" onAction="#saveLevel" text="SaveLevel" />
+                  
               <MenuItem mnemonicParsing="false" text="Close" />
             </items>
           </Menu>
@@ -57,6 +59,7 @@
       </HBox>
    </bottom>
    <center>
-     <MazeDisplayer fx:id="mazeDisplayer" height="300.0" width="300.0" BorderPane.alignment="CENTER" /> 
+     <MazeDisplayer fx:id="mazeDisplayer" height="300.0" width="300.0" BorderPane.alignment="CENTER" />
+  
    </center>
 </BorderPane>
