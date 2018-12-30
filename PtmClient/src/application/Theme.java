@@ -1,36 +1,49 @@
 package application;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.InputStream;
 
-import javax.sound.sampled.AudioInputStream;
 
-import com.sun.media.jfxmedia.effects.AudioEqualizer;
-
-import javafx.scene.effect.ImageInput;
 import javafx.scene.image.Image;
-import javafx.scene.media.AudioClip;
-import javafx.scene.media.MediaPlayer;
-import javafx.scene.media.MediaView;
 
 public class Theme {
 
-	
-
-	private Image varL = null; 
-	private Image varJ = null; 
-	private Image varF = null; 
-	private Image var7 = null; 
-	private Image varVert = null; 
-	private Image varHora = null; 
-	private Image start = null ; 
-	private Image goal = null ; 
-	//private String mediaUrl = null ; 
-	
 
 
-		public Theme(String themeType)  {
+	private Image varL = null;
+	private Image varJ = null;
+	private Image varF = null;
+	private Image var7 = null;
+	private Image varVert = null;
+	private Image varHora = null;
+	private Image start = null ;
+	private Image goal = null ;
+	private Image backg= null;
+
+	public void SetDark()
+	{
+		try {
+			backg= new Image(new FileInputStream("C:/Users/ehatchuel/Desktop/PtmClient/src/resources/eclipse.jpg"));
+
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	public void SetGarden()
+	{
+		try {
+			backg= new Image(new FileInputStream("C:/Users/ehatchuel/Desktop/PtmClient/src/resources/pane.jpg"));
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+
+		public Theme(String themeType){
+		if(themeType == "Garden"){
 			try {
 				varL = new Image (new FileInputStream("./src/resources/varL.png"));
 				varJ = new Image (new FileInputStream("./src/resources/varJ.png"));
@@ -38,29 +51,41 @@ public class Theme {
 				varF = new Image (new FileInputStream("./src/resources/varF.png"));
 				varVert = new Image (new FileInputStream("./src/resources/varVert.png"));
 				varHora = new Image (new FileInputStream("./src/resources/varHora.png"));
-				start = new Image (new FileInputStream("./src/resources/start.jpg"));
-				goal = new Image(new FileInputStream("./src/resources/goal.gif"));
+				start = new Image (new FileInputStream("C:/Users/ehatchuel/Desktop/PtmClient/src/resources/start.png"));
+				goal = new Image(new FileInputStream("./src/resources/goal.png"));
+				backg= new Image(new FileInputStream("C:/Users/ehatchuel/Desktop/PtmClient/src/resources/pane.jpg"));
 
 
 			} catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
-			if (themeType == "Dark") {
-				
-			//	InputStream is=new FileInputStream("./src/resources/Moon.mp3");
-			//	AudioInputStream as=new AudioInputStream(is);
-			//	AudioEqualizer.player.start(as);
 
 
-			}
-			else if (themeType == "Garden") {
-				
-			}
-			
-			
 		}
+		else if(themeType=="Dark"){
+			try{
+
+
+			varL = new Image (new FileInputStream("./src/resources/varL.png"));
+			varJ = new Image (new FileInputStream("./src/resources/varJ.png"));
+			var7 = new Image (new FileInputStream("./src/resources/var7.png"));
+			varF = new Image (new FileInputStream("./src/resources/varF.png"));
+			varVert = new Image (new FileInputStream("./src/resources/varVert.png"));
+			varHora = new Image (new FileInputStream("./src/resources/varHora.png"));
+			start = new Image (new FileInputStream("C:/Users/ehatchuel/Desktop/PtmClient/src/resources/start.png"));
+			goal = new Image(new FileInputStream("./src/resources/goal.png"));
+			backg= new Image(new FileInputStream("C:/Users/ehatchuel/Desktop/PtmClient/src/resources/eclipse.jpg"));
+
+		}	 catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		}
+		}
+
+
+
 		public Image getVarL() {
 			return varL;
 		}
@@ -139,5 +164,14 @@ public class Theme {
 		public void setGoal(Image goal) {
 			this.goal = goal;
 		}
+
+		public Image getbackg(){
+			return backg;
+		}
+
+		public void setbackg(Image backg) {
+			this.backg = backg;
+		}
+
 
 }

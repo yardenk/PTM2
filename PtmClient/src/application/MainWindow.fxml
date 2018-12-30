@@ -41,6 +41,11 @@
       <VBox prefHeight="254.0" prefWidth="82.0" spacing="5.0" BorderPane.alignment="CENTER">
          <children>
             <Button mnemonicParsing="false" onAction="#solve" prefHeight="27.0" prefWidth="61.0" text="Solve" />
+            <Button mnemonicParsing="false" onAction="#Garden" prefHeight="27.0" prefWidth="61.0" text="Wall" />
+            <Button mnemonicParsing="false" onAction="#Dark" prefHeight="27.0" prefWidth="61.0" text="Eclipse" />
+           
+             <Button mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="27.0" prefWidth="61.0" text="Connect" />
+            
          </children>
          <BorderPane.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
