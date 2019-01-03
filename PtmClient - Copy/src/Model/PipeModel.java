@@ -54,16 +54,12 @@ public class PipeModel extends Observable {
 			}
 		}
 	}
-	public void solve(char[][]mazeData, String hostAddr, int portAddr) {
+	public void solve(char[][]mazeData) {
 		Socket s=null;
 		PrintWriter out=null;
 		BufferedReader in=null;
-		if (hostAddr == null || portAddr == 0) {
-			hostAddr = "127.0.0.1";
-			portAddr = 6400 ; 
-		}
 		try{
-			s=new Socket(hostAddr,portAddr);
+			s=new Socket("127.0.0.1",6400);
 			s.setSoTimeout(3000);
 			out=new PrintWriter(s.getOutputStream());
 			in=new BufferedReader(new InputStreamReader(s.getInputStream()));
@@ -109,11 +105,6 @@ public class PipeModel extends Observable {
 
 		
 	}
-	public void check(char[][] mazeData) {
-		// TODO Auto-generated method stub
-		
-	}
-
 
 
 }

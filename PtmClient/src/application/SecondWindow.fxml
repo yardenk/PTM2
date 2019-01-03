@@ -7,14 +7,20 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="271.0" prefWidth="321.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="271.0" prefWidth="321.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" >
+  
+ 
+  
+  
    <children>
-      <Label text="Host:&#10;&#10;Port:">
+      <Label  text="Host:&#10;&#10;Port:">
          <font>
             <Font name="Britannic Bold" size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="50.0" layoutY="29.0" />
+      <TextField fx:id="host" layoutX="50.0" layoutY="29.0" promptText="IP" />
+      <TextField fx:id="port" layoutX="50.0" layoutY="29.0" promptText="Port" />
+      
       <TextField layoutX="50.0" />
       <Button layoutX="125.0" layoutY="188.0" mnemonicParsing="false"  text="Submit" />
    </children>

@@ -25,7 +25,7 @@ public class Theme {
 	public void SetDark()
 	{
 		try {
-			backg= new Image(new FileInputStream("C:/Users/ehatchuel/Desktop/PtmClient/src/resources/eclipse.jpg"));
+			backg= new Image(new FileInputStream("./src/resources/eclipse.jpg"));
 			start = new Image (new FileInputStream("./src/resources/start.png"));
 			goal = new Image (new FileInputStream("./src/resources/goal.png"));
 
@@ -37,7 +37,7 @@ public class Theme {
 	public void SetGarden()
 	{
 		try {
-			backg= new Image(new FileInputStream("C:/Users/ehatchuel/Desktop/PtmClient/src/resources/pane.jpg"));
+			backg= new Image(new FileInputStream("./src/resources/pane.jpg"));
 			goal = new Image (new FileInputStream("./src/resources/goal2.png"));
 			start = new Image (new FileInputStream("./src/resources/start2.png"));
 
@@ -59,7 +59,7 @@ public class Theme {
 				varHora = new Image (new FileInputStream("./src/resources/varHora.png"));
 				goal = new Image (new FileInputStream("./src/resources/goal2.png"));
 				start = new Image (new FileInputStream("./src/resources/start2.png"));
-				backg= new Image(new FileInputStream("C:/Users/ehatchuel/Desktop/PtmClient/src/resources/pane.jpg"));
+				backg= new Image(new FileInputStream("./src/resources/pane.jpg"));
 
 
 			} catch (FileNotFoundException e) {
@@ -81,7 +81,7 @@ public class Theme {
 			varHora = new Image (new FileInputStream("./src/resources/varHora.png"));
 			start = new Image (new FileInputStream("./src/resources/start.png"));
 			goal = new Image (new FileInputStream("./src/resources/goal.png"));
-			backg= new Image(new FileInputStream("C:/Users/ehatchuel/Desktop/PtmClient/src/resources/eclipse.jpg"));
+			backg= new Image(new FileInputStream("./src/resources/eclipse.jpg"));
 
 		}	 catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
