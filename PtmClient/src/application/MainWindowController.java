@@ -19,6 +19,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -113,9 +115,22 @@ public class MainWindowController implements Initializable, Observer{
     	model.solve(mazeData);
 	}
 	
-	public void check(){
-		
-	
+	public void checkCompletion() {
+		Alert completionStatus;
+		if (mazeDisplayer.isGoal()) {
+			completionStatus = new Alert(AlertType.INFORMATION);
+			completionStatus.setTitle("Completion Status");
+			completionStatus.setHeaderText(null);
+			completionStatus.getDialogPane().setPrefSize(300, 130);
+			completionStatus.setContentText("Congratulations!\nYou successfully finished this stage." );
+		} else {
+			completionStatus = new Alert(AlertType.ERROR);
+			completionStatus.setTitle("Completion Status");
+			completionStatus.setHeaderText(null);
+			completionStatus.getDialogPane().setPrefSize(300, 100);
+			completionStatus.setContentText("Oh sorry,try again");
+		}
+		completionStatus.showAndWait();
 	}
 
 

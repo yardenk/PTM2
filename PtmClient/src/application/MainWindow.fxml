@@ -43,7 +43,7 @@
             <Button mnemonicParsing="false" onAction="#solve" prefHeight="27.0" prefWidth="61.0" text="Solve" />
             <Button mnemonicParsing="false" onAction="#Garden" prefHeight="27.0" prefWidth="61.0" text="Wall" />
             <Button mnemonicParsing="false" onAction="#Dark" prefHeight="27.0" prefWidth="61.0" text="Eclipse" />
-              <Button mnemonicParsing="false" onAction="#check" prefHeight="27.0" prefWidth="61.0" text="check" />
+              <Button mnemonicParsing="false" onAction="#checkCompletion" prefHeight="27.0" prefWidth="61.0" text="Check" />
            
              <Button mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="27.0" prefWidth="61.0" text="Connect" />
             

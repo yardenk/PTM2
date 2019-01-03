@@ -1,11 +1,32 @@
-.anchor {
-    -fx-background-image:url('file:///C:/Users/ehatchuel/git/PTM2/PtmClient/src/resources/pane.jpg');
-}
+
 .button {
  -fx-text-fill: white;
     -fx-font-family: "Arial Narrow";
     -fx-font-weight: bold;
     -fx-background-color: linear-gradient(#61a2b1, #2A5058);
     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
-    
+
     }
+
+
+.root { /* base properties for all objects */
+ -fx-font: 10pt "Arial"; /* set default font */
+ -fx-text-fill: #dddddd; /* set default text colour */
+ -fx-background: #444348; /* set background colour */
+ -fx-base: #444349; /* set base window colour */
+ -fx-focus-color: transparent; /* remove focus colour */
+ -fx-accent: #808080;
+ }
+ 
+.menu-bar, /* menu bar and menu items */
+.context-menu {
+ -fx-background-color: #f3f2f282; /* set to be 50% transparent (rrggbbaa) */
+}
+.context-menu .label { /* set text colour for menu labels */
+ -fx-text-fill: #444349;
+}
+.table-view:row-selection, /* set selection properties */
+.table-view:col-selection {
+ -fx-background-color: transparent; /* make transparent */
+ -fx-text-fill: #444347; /* change selection colour */
+}

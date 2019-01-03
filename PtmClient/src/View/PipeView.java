@@ -42,51 +42,9 @@ public class PipeView extends Observable {
 				char [][] test = Rotate.switchIT(mazeData,(int)Math.floor(me.getY()/h),(int)Math.floor(me.getX()/w),1);
 				setPipeGame(test,mazeDisplayer,t);
 			
-
 			}
 			
-			
-			public void check(){
-				
-				Socket s=null;
-				PrintWriter out=null;
-				BufferedReader in=null;
-				try{
-					s=new Socket("127.0.0.1",6400);
-					s.setSoTimeout(3000);
-					out=new PrintWriter(s.getOutputStream());
-					in=new BufferedReader(new InputStreamReader(s.getInputStream()));
-					
-					String line=in.readLine();
-					
-						//setPipeGame(temp);
-						
-					    line=in.readLine();
-					    if(line != null){
-					    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("WinningWindow.fxml"));
-					    	Parent root= (Parent) fxmlLoader.load();
-					    	Stage stage = new Stage();
-					    	stage.setTitle("Connect to server");
-					    	stage.setScene(new Scene(root));
-					    	stage.show();
-					    	
-					    }
-					
-			
-				}catch(IOException e){
-					System.out.println("Your Server ran into some IOException");
-				}finally{
-					try {
-						in.close();
-						out.close();
-						s.close();
-					} catch (IOException e) {
-						System.out.println("Your Server ran into some IOException");
-					}
-				}
-
-				
-			}
+		
 			
 		});
 	}

@@ -1,5 +1,7 @@
 package application;
 
+import java.awt.Point;
+
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 
@@ -29,7 +31,160 @@ public class MazeDisplayer extends Canvas{
 		cRow = 2;
 	}
 
-
+	//Check if the board is in Goal state (Possible path from s to g). Using recIsGoal().
+		public boolean isGoal()
+		{
+			int i=0;
+			int j=0;
+			outerLoop:
+			for (i=0; i<getHeight(); i++) {
+				for (j=0; i<getWidth(); j++) {
+					if (mazeData[i][j] == 's')
+					{
+						break outerLoop;
+					}
+				}
+			}
+			Point start = new Point(i,j);
+			boolean[][] visited = new boolean[(int) getHeight()][(int) getWidth()];
+			return recIsGoal(visited,start);
+		}
+		//Recurse check for isGoal() (Dynamic Algorithm).
+		private boolean recIsGoal(boolean[][] visited,Point p)
+		{
+			if(mazeData[p.x][p.y] == 'g') { return true; }
+			visited[p.x][p.y] = true;
+			boolean flag = false;
+			if(mazeData[p.x][p.y] == '|') {
+				p.x++;
+				if ((p.x < getHeight())&&(!visited[p.x][p.y])&&
+						((mazeData[p.x][p.y] == 'L')||(mazeData[p.x][p.y] == 'J')||
+						(mazeData[p.x][p.y] == '|')||(mazeData[p.x][p.y] == 'g'))) {
+					if(recIsGoal(visited,p)) { flag = true; }
+				}
+				p.x-=2;
+				if ((p.x >= 0)&&(!visited[p.x][p.y])&&
+						((mazeData[p.x][p.y] == '7')||(mazeData[p.x][p.y] == 'F')||
+						(mazeData[p.x][p.y] == '|')||(mazeData[p.x][p.y] == 'g'))) {
+					if(recIsGoal(visited,p)) { flag = true; }
+				}
+				p.x++;
+			}
+			else if(mazeData[p.x][p.y] == '-')
+			{
+				p.y++;
+				if ((p.y < getWidth())&&(!visited[p.x][p.y])&&
+						((mazeData[p.x][p.y] == 'J')||(mazeData[p.x][p.y] == '7')||
+						(mazeData[p.x][p.y] == '-')||(mazeData[p.x][p.y] == 'g'))) {
+					if(recIsGoal(visited,p)) { flag = true; }
+				}
+				p.y-=2;
+				if ((p.y >= 0)&&(!visited[p.x][p.y])&&
+						((mazeData[p.x][p.y] == 'L')||(mazeData[p.x][p.y] == 'F')||
+						(mazeData[p.x][p.y] == '-')||(mazeData[p.x][p.y] == 'g'))) {
+					if(recIsGoal(visited,p)) { flag = true; }
+				}
+				p.y++;
+			}
+			else if(mazeData[p.x][p.y] == 'L')
+			{
+				p.x--;
+				if ((p.x >= 0)&&(!visited[p.x][p.y])&&
+						((mazeData[p.x][p.y] == '7')||(mazeData[p.x][p.y] == 'F')||
+						(mazeData[p.x][p.y] == '|')||(mazeData[p.x][p.y] == 'g'))) {
+					if(recIsGoal(visited,p)) { flag = true; }
+				}
+				p.x++;
+				p.y++;
+				if ((p.y < getWidth())&&(!visited[p.x][p.y])&&
+						((mazeData[p.x][p.y] == 'J')||(mazeData[p.x][p.y] == '7')||
+						(mazeData[p.x][p.y] == '-')||(mazeData[p.x][p.y] == 'g'))) {
+					if(recIsGoal(visited,p)) { flag = true; }
+				}
+				p.y--;
+			}
+			else if(mazeData[p.x][p.y] == 'F')
+			{
+				p.x++;
+				if ((p.x < getHeight())&&(!visited[p.x][p.y])&&
+						((mazeData[p.x][p.y] == 'L')||(mazeData[p.x][p.y] == 'J')||
+						(mazeData[p.x][p.y] == '|')||(mazeData[p.x][p.y] == 'g'))) {
+					if(recIsGoal(visited,p)) { flag = true; }
+				}
+				p.x--;
+				p.y++;
+				if ((p.y < getWidth())&&(!visited[p.x][p.y])&&
+						((mazeData[p.x][p.y] == 'J')||(mazeData[p.x][p.y] == '7')||
+						(mazeData[p.x][p.y] == '-')||(mazeData[p.x][p.y] == 'g'))) {
+					if(recIsGoal(visited,p)) { flag = true; }
+				}
+				p.y--;
+			}
+			else if(mazeData[p.x][p.y] == '7')
+			{
+				p.x++;
+				if ((p.x < getHeight())&&(!visited[p.x][p.y])&&
+						((mazeData[p.x][p.y] == 'L')||(mazeData[p.x][p.y] == 'J')||
+						(mazeData[p.x][p.y] == '|')||(mazeData[p.x][p.y] == 'g'))) {
+					if(recIsGoal(visited,p)) { flag = true; }
+				}
+				p.x--;
+				p.y--;
+				if ((p.y >= 0)&&(!visited[p.x][p.y])&&
+						((mazeData[p.x][p.y] == 'L')||(mazeData[p.x][p.y] == 'F')||
+						(mazeData[p.x][p.y] == '-')||(mazeData[p.x][p.y] == 'g'))) {
+					if(recIsGoal(visited,p)) { flag = true; }
+				}
+				p.y++;
+			}
+			else if(mazeData[p.x][p.y] == 'J')
+			{
+				p.x--;
+				if ((p.x >= 0)&&(!visited[p.x][p.y])&&
+						((mazeData[p.x][p.y] == '7')||(mazeData[p.x][p.y] == 'F')||
+						(mazeData[p.x][p.y] == '|')||(mazeData[p.x][p.y] == 'g'))) {
+					if(recIsGoal(visited,p)) { flag = true; }
+				}
+				p.x++;
+				p.y--;
+				if ((p.y >= 0)&&(!visited[p.x][p.y])&&
+						((mazeData[p.x][p.y] == 'L')||(mazeData[p.x][p.y] == 'F')||
+						(mazeData[p.x][p.y] == '-')||(mazeData[p.x][p.y] == 'g'))) {
+					if(recIsGoal(visited,p)) { flag = true; }
+				}
+				p.y++;
+			}
+			else if(mazeData[p.x][p.y] == 's')
+			{
+				p.x--;
+				if ((p.x >= 0)&&(!visited[p.x][p.y])&&
+						((mazeData[p.x][p.y] == '7')||(mazeData[p.x][p.y] == 'F')||
+						(mazeData[p.x][p.y] == '|')||(mazeData[p.x][p.y] == 'g'))) {
+					if(recIsGoal(visited,p)) { flag = true; }
+				}
+				p.x+=2;
+				if ((p.x < getHeight())&&(!visited[p.x][p.y])&&
+						((mazeData[p.x][p.y] == 'L')||(mazeData[p.x][p.y] == 'J')||
+						(mazeData[p.x][p.y] == '|')||(mazeData[p.x][p.y] == 'g'))) {
+					if(recIsGoal(visited,p)) { flag = true; }
+				}
+				p.x--;
+				p.y--;
+				if ((p.y >= 0)&&(!visited[p.x][p.y])&&
+						((mazeData[p.x][p.y] == 'L')||(mazeData[p.x][p.y] == 'F')||
+						(mazeData[p.x][p.y] == '-')||(mazeData[p.x][p.y] == 'g'))) {
+					if(recIsGoal(visited,p)) { flag = true; }
+				}
+				p.y+=2;
+				if ((p.y < getWidth())&&(!visited[p.x][p.y])&&
+						((mazeData[p.x][p.y] == 'J')||(mazeData[p.x][p.y] == '7')||
+						(mazeData[p.x][p.y] == '-')||(mazeData[p.x][p.y] == 'g'))) {
+					if(recIsGoal(visited,p)) { flag = true; }
+				}
+				p.y--;
+			}
+			return flag;
+		}
 
 
 	public void setMazeData(char[][] mazeData,Theme t) {
