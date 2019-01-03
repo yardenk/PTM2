@@ -5,6 +5,7 @@ import java.awt.Label;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.net.URL;
 import java.util.Observable;
 import java.util.Observer;
@@ -41,6 +42,7 @@ public class MainWindowController implements Initializable, Observer{
 	@FXML
 	MazeDisplayer mazeDisplayer ;
 	Theme t = new Theme("Dark");
+	
 
     public void Dark(){
 
@@ -71,18 +73,9 @@ public class MainWindowController implements Initializable, Observer{
 	}
 
 
-
-
-
-
-
-
 	private void setPipeGame(char [][] mazeData){
 		view.setPipeGame(mazeData, mazeDisplayer, t);
 	}
-
-
-
 
 
 	@FXML
@@ -107,20 +100,22 @@ public class MainWindowController implements Initializable, Observer{
     }
 	}
 
-
-
+	
 	public void save(int port , String Host){
-		if(port==6300&& Host=="127.0.0.1"  ){
-
-			solve();
+		
 
 		}
 
-	}
-
-
+	
+  
 	public void solve() {
-		model.solve(mazeData);
+		
+    	model.solve(mazeData);
+	}
+	
+	public void check(){
+		
+	
 	}
 
 

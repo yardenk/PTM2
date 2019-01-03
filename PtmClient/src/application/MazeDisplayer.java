@@ -8,7 +8,7 @@ public class MazeDisplayer extends Canvas{
 	char[][] mazeData ;
 	int cCol,cRow;
 	Theme t ;
-	
+
 
 	public int getcCol() {
 		return cCol;
@@ -35,25 +35,25 @@ public class MazeDisplayer extends Canvas{
 	public void setMazeData(char[][] mazeData,Theme t) {
 		this.mazeData = mazeData;
 		this.t = t;
-	
+
 		redraw();
 	}
 
 	public void redraw() {
 
-		
+
 		if (mazeData!=null) {
 			double W = getWidth();
 			double H = getHeight();
 			double w = W / mazeData[0].length;
 			double h = H / mazeData.length;
-			
-            
 
-            
+
+
+
 			GraphicsContext gc = getGraphicsContext2D();
-			
-			
+
+
 			gc.drawImage(t.getbackg(),0,0, W, H);
 
 

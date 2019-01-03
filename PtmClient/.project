@@ -21,21 +21,4 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.xtext.ui.shared.xtextNature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>src/resources/eclipse.jpg</name>
-			<type>1</type>
-			<location>C:/Users/ehatchuel/Desktop/PtmClient/src/resources/eclipse.jpg</location>
-		</link>
-		<link>
-			<name>src/resources/pane.jpg</name>
-			<type>1</type>
-			<location>C:/Users/ehatchuel/Desktop/PtmClient/src/resources/pane.jpg</location>
-		</link>
-		<link>
-			<name>src/resources/start.png</name>
-			<type>1</type>
-			<location>C:/Users/ehatchuel/Desktop/PtmClient/src/resources/start.png</location>
-		</link>
-	</linkedResources>
 </projectDescription>

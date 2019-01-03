@@ -105,6 +105,11 @@ public class PipeModel extends Observable {
 
 		
 	}
+	public void check(char[][] mazeData) {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 
 }

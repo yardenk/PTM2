@@ -20,11 +20,14 @@ public class Theme {
 	private Image start = null ;
 	private Image goal = null ;
 	private Image backg= null;
+	private Image im= null;
 
 	public void SetDark()
 	{
 		try {
 			backg= new Image(new FileInputStream("C:/Users/ehatchuel/Desktop/PtmClient/src/resources/eclipse.jpg"));
+			start = new Image (new FileInputStream("./src/resources/start.png"));
+			goal = new Image (new FileInputStream("./src/resources/goal.png"));
 
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -35,6 +38,9 @@ public class Theme {
 	{
 		try {
 			backg= new Image(new FileInputStream("C:/Users/ehatchuel/Desktop/PtmClient/src/resources/pane.jpg"));
+			goal = new Image (new FileInputStream("./src/resources/goal2.png"));
+			start = new Image (new FileInputStream("./src/resources/start2.png"));
+
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -43,7 +49,7 @@ public class Theme {
 
 
 		public Theme(String themeType){
-		if(themeType == "Garden"){
+		if(themeType == "Garden"){//wall
 			try {
 				varL = new Image (new FileInputStream("./src/resources/varL.png"));
 				varJ = new Image (new FileInputStream("./src/resources/varJ.png"));
@@ -51,8 +57,8 @@ public class Theme {
 				varF = new Image (new FileInputStream("./src/resources/varF.png"));
 				varVert = new Image (new FileInputStream("./src/resources/varVert.png"));
 				varHora = new Image (new FileInputStream("./src/resources/varHora.png"));
-				start = new Image (new FileInputStream("C:/Users/ehatchuel/Desktop/PtmClient/src/resources/start.png"));
-				goal = new Image(new FileInputStream("./src/resources/goal.png"));
+				goal = new Image (new FileInputStream("./src/resources/goal2.png"));
+				start = new Image (new FileInputStream("./src/resources/start2.png"));
 				backg= new Image(new FileInputStream("C:/Users/ehatchuel/Desktop/PtmClient/src/resources/pane.jpg"));
 
 
@@ -63,7 +69,7 @@ public class Theme {
 
 
 		}
-		else if(themeType=="Dark"){
+		else if(themeType=="Dark"){//eclipse
 			try{
 
 
@@ -73,8 +79,8 @@ public class Theme {
 			varF = new Image (new FileInputStream("./src/resources/varF.png"));
 			varVert = new Image (new FileInputStream("./src/resources/varVert.png"));
 			varHora = new Image (new FileInputStream("./src/resources/varHora.png"));
-			start = new Image (new FileInputStream("C:/Users/ehatchuel/Desktop/PtmClient/src/resources/start.png"));
-			goal = new Image(new FileInputStream("./src/resources/goal.png"));
+			start = new Image (new FileInputStream("./src/resources/start.png"));
+			goal = new Image (new FileInputStream("./src/resources/goal.png"));
 			backg= new Image(new FileInputStream("C:/Users/ehatchuel/Desktop/PtmClient/src/resources/eclipse.jpg"));
 
 		}	 catch (FileNotFoundException e) {
@@ -172,6 +178,8 @@ public class Theme {
 		public void setbackg(Image backg) {
 			this.backg = backg;
 		}
+
+
 
 
 }
