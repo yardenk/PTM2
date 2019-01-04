@@ -8,13 +8,9 @@ We used MVC architecture in our PTM2 Client (containes model,view & controller).
 Elements : 
 
 Check solution 
-
 Ask for solution  
-
 Edit server's information 
-
 Change the Theme (under "Theme") 
-
 Save & Load level (under "File")
 
 In order to run the server - please run "Runner.java" (located under PTM2 -> server package ) and then run the client (using the Main.java under PtmClient -> application package).
