@@ -83,8 +83,8 @@ public class PipeModel extends Observable {
 			out.flush();
 			
 			String line=in.readLine();
-			while (line!=null) {
-				String[] test = line.split(",");
+			while (line!=null && !line.equals("done")) {
+				String[] test = line.split(",");		
 				char [][] temp = Rotate.switchIT(mazeData,Integer.parseInt(test[0]),Integer.parseInt(test[1]),Integer.parseInt(test[2]));
 				setChanged();
 				notifyObservers(temp);
