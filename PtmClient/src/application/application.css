@@ -20,14 +20,14 @@
  
 .menu-bar, /* menu bar and menu items */
 .context-menu {
- -fx-background-color: #f3f2f282; /* set to be 50% transparent (rrggbbaa) */
+ -fx-background-color: #f44298; /* set to be 50% transparent (rrggbbaa) */
  
 }
 .context-menu .label { /* set text colour for menu labels */
- -fx-text-fill: #444349;
+ -fx-text-fill: #111010;
 }
 .table-view:row-selection, /* set selection properties */
 .table-view:col-selection {
  -fx-background-color: transparent; /* make transparent */
- -fx-text-fill: #444347; /* change selection colour */
+ -fx-text-fill: #111010; /* change selection colour */
 }

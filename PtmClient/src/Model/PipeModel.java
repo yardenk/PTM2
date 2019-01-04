@@ -88,7 +88,6 @@ public class PipeModel extends Observable {
 				char [][] temp = Rotate.switchIT(mazeData,Integer.parseInt(test[0]),Integer.parseInt(test[1]),Integer.parseInt(test[2]));
 				setChanged();
 				notifyObservers(temp);
-				//setPipeGame(temp);
 			    line=in.readLine();
 			}
 			
