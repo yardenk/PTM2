@@ -10,8 +10,13 @@ import java.net.URL;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.ResourceBundle;
+import java.util.TimerTask;
+
+import javax.swing.Timer;
 
 import Model.PipeModel;
+
+
 import View.PipeView;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -30,51 +35,63 @@ import javafx.stage.Window;
 
 public class MainWindowController implements Initializable, Observer{
 
+
+
 	char[][]mazeData = {
-			{'s','F','F','J','L'},
-			{'J','L','F','L','J'},
-			{'J','L','F','F','F'},
-			{'J','L','L','-','J'},
-			{'J','L','J','F','L'},
-			{'J','L','F','L','g'},
+			{'s','F','F','J','L','L'},
+			{'J','L','F','L','J','L'},
+			{'J','L','F','F','F','L'},
+			{'J','L','L','-','J','L'},
+			{'J','L','J','F','L','L'},
+			{'J','L','F','L','F','L'},
+			{'J','L','J','F','L','L'},
+			{'J','L','J','L','F','g'},
 	};
 	private PipeModel model = new PipeModel();
 	private PipeView view = new PipeView();
 
 	@FXML
 	MazeDisplayer mazeDisplayer ;
-	Theme t = new Theme("Dark");
-	
+	Theme t = new Theme("Garden");
+	//private LabelHandler label;
 
-    public void Dark(){
-
-	Media musicFile=new Media("file:///C:/Users/ehatchuel/Desktop/PtmClient/src/resources/ecl.mp3");
-	MediaPlayer mediaPlayer = new MediaPlayer(musicFile);
-	mediaPlayer.setAutoPlay(true);
-	t.SetDark();
-	mazeDisplayer.redraw();
-     }
+	@FXML
 
 
-	public void Garden() {
-
-		Media musicFile=new Media("file:///C:/Users/ehatchuel/Desktop/PtmClient/src/resources/mus.mp3");
-		MediaPlayer mediaPlayer = new MediaPlayer(musicFile);
-		mediaPlayer.setAutoPlay(true);
-		t.SetGarden();
-		mazeDisplayer.redraw();
+	public void theWallSong(){
+		this.t = new Theme("Garden");
+		setPipeGame(mazeData);
 
 	}
+	public void ECLIPSE(){
+		this.t = new Theme("Dark");
+		setPipeGame(this.mazeData);
+	}
+
+
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		setPipeGame(mazeData);
 		model.addObserver(this);
 		view.addObserver(this);
+//		setLableStepsHandler();
+//		setLabelHandler();
+//		this.statistics = new Statistics();
+//		this.statistics.setLevel(mazeData);
+//		this.statistics.setStepsNumber(0);
 
 	}
 
-
+//
+//	public void setLableStepsHandler() {
+//		this.stepsLabel=new LabelStepsHandler(lblSteps);
+//
+//	}
+//
+//	public void setLabelHandler() {
+//		this.label=new LabelHandler(lbl);
+//	}
 	private void setPipeGame(char [][] mazeData){
 		view.setPipeGame(mazeData, mazeDisplayer, t);
 	}
@@ -90,6 +107,7 @@ public class MainWindowController implements Initializable, Observer{
    public void handleButtonAction(){
     try{
 
+
     	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SecondWindow.fxml"));
     	Parent root= (Parent) fxmlLoader.load();
     	Stage stage = new Stage();
@@ -102,19 +120,13 @@ public class MainWindowController implements Initializable, Observer{
     }
 	}
 
-	
-	public void save(int port , String Host){
-		
 
-		}
-
-	
-  
 	public void solve() {
-		
+
     	model.solve(mazeData);
 	}
-	
+
+
 	public void checkCompletion() {
 		Alert completionStatus;
 		if (mazeDisplayer.isGoal()) {

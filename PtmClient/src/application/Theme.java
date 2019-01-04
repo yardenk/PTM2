@@ -22,30 +22,6 @@ public class Theme {
 	private Image backg= null;
 	private Image im= null;
 
-	public void SetDark()
-	{
-		try {
-			backg= new Image(new FileInputStream("C:/Users/ehatchuel/Desktop/PtmClient/src/resources/eclipse.jpg"));
-			start = new Image (new FileInputStream("./src/resources/start.png"));
-			goal = new Image (new FileInputStream("./src/resources/goal.png"));
-
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	public void SetGarden()
-	{
-		try {
-			backg= new Image(new FileInputStream("C:/Users/ehatchuel/Desktop/PtmClient/src/resources/pane.jpg"));
-			goal = new Image (new FileInputStream("./src/resources/goal2.png"));
-			start = new Image (new FileInputStream("./src/resources/start2.png"));
-
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
 
 
 		public Theme(String themeType){
@@ -60,7 +36,8 @@ public class Theme {
 				goal = new Image (new FileInputStream("./src/resources/goal2.png"));
 				start = new Image (new FileInputStream("./src/resources/start2.png"));
 				backg= new Image(new FileInputStream("C:/Users/ehatchuel/Desktop/PtmClient/src/resources/pane.jpg"));
-
+				File file = new File("./src/resources/mus.mp3");
+				setThemeSong(file);
 
 			} catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
@@ -82,7 +59,8 @@ public class Theme {
 			start = new Image (new FileInputStream("./src/resources/start.png"));
 			goal = new Image (new FileInputStream("./src/resources/goal.png"));
 			backg= new Image(new FileInputStream("C:/Users/ehatchuel/Desktop/PtmClient/src/resources/eclipse.jpg"));
-
+			File file = new File("./src/resources/ecli.mp3");
+			setThemeSong(file);
 		}	 catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -179,7 +157,9 @@ public class Theme {
 			this.backg = backg;
 		}
 
-
+		public void setThemeSong(File file) {
+			ViewMediaPlayer.getInstance().setSong(file);
+		}
 
 
 }

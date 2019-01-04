@@ -4,13 +4,13 @@
     -fx-font-family: "Arial Narrow";
     -fx-font-weight: bold;
     -fx-background-color: linear-gradient(#61a2b1, #2A5058);
-    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+    -fx-effect: dropshadow( three-pass-box , rgba(5000,5,5,5.6) , 5, 0.0 , 0 , 1 );
 
     }
 
 
 .root { /* base properties for all objects */
- -fx-font: 10pt "Arial"; /* set default font */
+ -fx-font: 9pt "Arial"; /* set default font */
  -fx-text-fill: #dddddd; /* set default text colour */
  -fx-background: #444348; /* set background colour */
  -fx-base: #444349; /* set base window colour */
@@ -21,6 +21,7 @@
 .menu-bar, /* menu bar and menu items */
 .context-menu {
  -fx-background-color: #f3f2f282; /* set to be 50% transparent (rrggbbaa) */
+ 
 }
 .context-menu .label { /* set text colour for menu labels */
  -fx-text-fill: #444349;
