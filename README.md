@@ -1,7 +1,7 @@
 
 Names of students : 
-1. Ester Hatchuel - ID 300787181
-2. Yarden Kesari  - ID 203070511 
+1. Ester Hatchuel 
+2. Yarden Kesari 
 
 We used MVC architecture in our PTM2 Client (containes model,view & controller). The controller implements Observer and the model & view extends the Observable. 
 We chose to implement Mvc in order to create a clearly separation of concerns between model and view.
